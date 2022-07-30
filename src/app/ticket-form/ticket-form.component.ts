@@ -20,7 +20,7 @@ export class TicketFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) { }
 
-  @Input() action = 'Add';
+
   @ViewChild('ticketForm') ticketForm: NgForm | undefined;
   
   projects:any;
@@ -29,6 +29,7 @@ export class TicketFormComponent implements OnInit {
   assignees:any;
   today: any;
   isEdit: boolean= false;
+  action = 'Add';
   ticket: any={
     Name: "",
     Description: "",
@@ -57,6 +58,7 @@ export class TicketFormComponent implements OnInit {
     if(id){
       this.getTaskById(id);
       this.isEdit=true;
+      this.action='Update'
     }
   }
 

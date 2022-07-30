@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { TicketCardComponent } from './ticket-card/ticket-card.component';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import { TicketListerComponent } from './ticket-lister/ticket-lister.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TicketListerComponent } from './ticket-lister/ticket-lister.component';
     AppRoutingModule,
     FormsModule,
     NgSelectModule,
+    DragDropModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
