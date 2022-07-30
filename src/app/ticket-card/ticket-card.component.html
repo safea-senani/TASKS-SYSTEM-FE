@@ -1,0 +1,28 @@
+<div class="card" data-aos="fade-down">
+    <div class="header">
+        <span [classList]="ticket?.Project">{{ticket?.Project}}</span>
+        <div class="btns">
+            <i class="bi bi-eye"></i>
+            <i class="bi bi-pencil-square" (click)="goEdit(ticket?.Id)"></i>
+            <i class="bi bi-trash3"></i>
+        </div>
+    </div>
+    <div class="txt-wrapper">
+        <span>{{ticket?.Name}}</span>
+        <p>{{ticket?.Description}}</p>
+    </div>
+    <div class="flags-wrapper">
+        <span  [classList]="ticket?.Priorty" >{{ticket?.Priorty}}</span>
+        <span [classList]="ticket?.Status" >{{ticket?.Status}}</span>
+    </div>
+    <div class="footer">
+        <div class="imgs-wrapper">
+            <img src="\assets\imgs\person1.jpg">
+            <img src="\assets\imgs\person2.jpg">
+            <img src="\assets\imgs\person3.jpg">
+        </div>
+
+        <span><i class="bi bi-calendar3"></i> &nbsp; {{ticket?.DueDate | date}}</span>
+    </div>
+</div>
+

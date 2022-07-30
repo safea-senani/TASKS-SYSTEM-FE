@@ -1,0 +1,66 @@
+<!--PAGE HEAD-->
+<div class="page-head">
+    <h1>Tasks Management System</h1>
+</div>
+<!--UPPER SECTION-->
+<div class="col-7 container upper-section">
+    <div class="row">
+        <div >
+            <div>
+                <span>Task Meter:</span>
+                <span class="active-tasks">  {{doneTicketsCount}}</span>
+                <span > / {{totalTasks}}</span>
+            </div>
+            <progress id="file" value="{{doneTicketsCount}}" max="{{totalTasks}}">  </progress>
+        </div>
+    </div>
+    <button [routerLink]="['/form/add']" >Add Task <i class="bi bi-plus-circle"></i></button>
+    </div>
+<div>
+
+</div>
+<!--TASKS WRAPPER-->
+<div class="container tasks">
+    <div class="row sections-wrapper">
+        <!--PENDING TASKS -->
+        <div class="col-3 pending tasks-section">
+            <div class="p-header">
+                <span class="start-p"></span>
+                <h3>To Do</h3>
+                <span class="counter">{{pendingTicketsCount}}</span>
+            </div>
+            <div>
+                <div class="card-block" *ngFor="let peningTieckt of pendingTickets">
+                    <app-ticket-card [ticket]="peningTieckt"></app-ticket-card>
+                </div>
+            </div>
+        </div>
+        <!--ONGOING TASKS -->
+        <div class="col-3 ongoing tasks-section">
+            <div class="p-header">
+                <span class="start-p"></span>
+                <h3>In Progress</h3>
+                <span class="counter">{{ongoingTicketsCount}}</span>
+            </div>
+            <div>
+                <div class="card-block" *ngFor="let ongoingTieckt of ongoingTickets">
+                    <app-ticket-card [ticket]="ongoingTieckt"></app-ticket-card>
+                </div>
+            </div>
+        </div>
+        <!--DONE TASKS -->
+        <div class="col-3 done tasks-section">
+            <div class="p-header">
+                <span class="start-p"></span>
+                <h3>Done</h3>
+                <span class="counter">{{doneTicketsCount}}</span>
+            </div>
+            <div>
+                <div class="card-block" *ngFor="let doneTieckt of doneTickets">
+                    <app-ticket-card [ticket]="doneTieckt"></app-ticket-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,50 @@
+
+app-ticket-form{
+    // page-head ===========================================================================
+    .page-head{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+        color: white;
+        background-color: rgb(211, 211, 211);
+        align-items: center;
+    }
+
+    // form wrapper =====================================================================================
+    .form-wrapper{
+        .btns{
+            button{
+                background: cornflowerblue;
+                border-radius: 8px;
+                padding: 0.2rem;
+                width: 7rem;
+                border: solid 2px whitesmoke;
+                font-weight: 600;
+                color: white;
+                &:hover{
+                    box-shadow: 0 3px 5px 1px #0003;
+                    transform: scale(1.02);
+                }
+            }
+            .cancel{
+                background: gray;
+            }
+        }
+    }
+
+    // select input
+    ::ng-deep.ng-select-container {
+        border-bottom: 1px solid red !important;
+     }
+    // form validation ==========================================================
+    .ng-select {
+        padding: 0 !important;
+        //height: 2rem;
+    }
+    
+    .ng-invalid:not(form)  {
+        border-left: 5px solid #a94442; /* red */
+    }
+
+}

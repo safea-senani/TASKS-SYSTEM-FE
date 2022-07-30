@@ -1,0 +1,145 @@
+app-ticket-card{
+    .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        height: 18rem;
+        width: 100%;
+        margin: 0 auto;
+        transition: .5s;
+        padding: 0.2rem;
+        padding-left: 0.7rem;
+        border: solid 1px #e6e6e6;
+        background-color: #f4f4f475;
+        font-family: system-ui;
+        border-radius: 22px;
+        &:hover{
+            box-shadow: 0 3px 5px 1px #0003;
+            transform: scale(1.02);
+        }
+    
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+    
+            span{
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
+                transition: 0.3s;
+                text-align: center;
+                border-radius: 5px;
+                height: 1.2rem;
+                background: #a000bb;
+                width: 6rem;
+                padding-top: 0;
+                margin-top: -1.4rem;
+            }
+            //==== CUSTOM PROJECT CLASSES
+            .PEOJECT1{
+                background: #a000bb;
+            }
+            .PEOJECT2{
+                background: #d0a95c;
+            }
+            .PEOJECT3{
+                background: #60c3f5;
+            }
+
+            .btns{
+                color: lightgray;
+                cursor: pointer;
+               i{
+                margin-right: 0.5rem;
+                font-size: 1rem;
+                &:hover{
+                        transform: scale(1.5); 
+                        color: blue;
+                    }
+               } 
+            }
+        }
+        .txt-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            width: 100%;
+            border-bottom: solid 2px lightgray;
+            span{
+                font-size: 14 px;
+                font-weight: 500;
+            }
+            p{
+                font-size: 12px;
+            }
+    
+        }
+        .flags-wrapper{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            span{
+                width: 6rem;
+                margin-right: 0.7rem;
+                text-align: center;
+                padding: 0.3rem;
+                border-radius: 8px;
+                padding-bottom: 0.5rem;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            //priorty flags
+            .Pending{
+                background-color: rgb(181, 146, 182);
+               color: rgb(104, 22, 105);
+    
+            }
+            .Ongoing{
+                background-color: rgb(246, 217, 165);
+                color: orange;
+            }
+            .Done{
+                background-color: rgb(170, 210, 170);
+                color: green;
+            }
+            //priorty flags
+            .Low{
+                background-color: rgb(255, 255, 204);
+                color: #888838;
+                    }
+            .Med{
+                background-color: rgb(240, 210, 154);
+                color: rgb(224, 163, 50);
+            }
+            .High{
+                background-color: rgb(240, 192, 192);
+                color: rgb(233, 104, 104);
+    
+            }
+        }
+        .footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            .imgs-wrapper{
+                display: flex;
+                flex-direction: row;
+                img{
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 50%;
+                }
+            }
+            span{
+                color: lightgray;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+}
