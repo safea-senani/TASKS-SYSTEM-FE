@@ -3,68 +3,72 @@
     <h2>{{action}} Task</h2>
     <span>Today's Date: {{today}}</span>
 </div>
+<br>
+
 <!-- FORM CONTENT-->
 <div class="container form-wrapper">
     <div class="row">
         <form id="ticketForm" name="ticketForm" #ticketForm="ngForm"  ngNativeValidate>
             <!--fields-->
             <div>
-            <!--TASK NAME-->
-            <div class="row col-12">
-                <label for="fname">Name the task</label><br>
-                <input type="text" maxlength = "30"  id="tname" name="tname"  class="form-control" placeholder="Task Name" [(ngModel)]="ticket.Name" required>    
+                <!--TASK NAME-->
+                <div class="row col-12">
+                    <label for="fname">Name the task</label><br>
+                    <input type="text" maxlength = "30"  id="tname" name="tname"  class="form-control" placeholder="Task Name" [(ngModel)]="ticket.Name" required>    
 
-            </div>
-            <div class="row col-12">
-            <!--Project NAME-->
-                <div class="col-6">
-                    <label for="project">Choose Project</label><br>
-                    <ng-select [items]="projects"  bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Project" name="project" required>
-                        <ng-template ng-label-tmp let-item="item">
-                            {{item.Name}}
-                        </ng-template>
-                    </ng-select>
                 </div>
-
-            <!--DUE DATE-->
-                <div class="col-6">
-                    <label for="dueDate">Due Date</label><br>
-                    <input type="date" id="dueDate" name="dueDate" class="form-control" [(ngModel)]="ticket.DueDate" required>    
+                <!--TASK DESC-->
+                <div class="row col-12">
+                    <label for="descriptioin">Descriptioin</label><br>
+                    <textarea maxlength = "100"  type="text" id="descriptioin" name="descriptioin" class="form-control" placeholder="Descriptioin" [(ngModel)]="ticket.Description" required></textarea>
                 </div>
-            </div>
-            <div class="row col-12">
                 <!--ASSIGNEE-->
-                <div class="col-6">
-                    <label for="assignee">Assignees</label><br>
+                <div class="row col-12">
+                    <label for="assignee">Assignee</label><br>
                     <ng-select [items]="assignees" name="assignee" id="assignee" bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Assignee" required>
                         <ng-template ng-label-tmp let-item="item">
                             {{item.Name}}
                         </ng-template>
                     </ng-select>
                 </div>
-                <!--PRIORTY-->
-                <div class="col-6">
-                    <label for="priorty">Priorty</label><br>
-                    <ng-select [items]="priorities" name="priorty" id="priorty" bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Priorty" required>
-                        <ng-template ng-label-tmp let-item="item">
-                            {{item.Name}}
-                        </ng-template>
-                    </ng-select>
+                <div class="row col-12">
+                <!--Project NAME-->
+                    <div class="col-6 right-field">
+                        <label for="project">Choose Project</label><br>
+                        <ng-select [items]="projects"  bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Project" name="project" required>
+                            <ng-template ng-label-tmp let-item="item">
+                                {{item.Name}}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+
+                <!--DUE DATE-->
+                    <div class="col-6">
+                        <label for="dueDate">Due Date</label><br>
+                        <input type="date" id="dueDate" name="dueDate" class="form-control" [(ngModel)]="ticket.DueDate" required>    
+                    </div>
                 </div>
-            </div>
-            <div class="row col-12">
-                <!--STATUS-->
-                    <label for="status">Status</label><br>
-                    <ng-select [items]="statuses" name="status" id="status" bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Status" required>
-                        <ng-template ng-label-tmp let-item="item">
-                            {{item.Name}}
-                        </ng-template>
-                    </ng-select>
-            </div>
-            <div class="row col-12">
-                <label for="descriptioin">Descriptioin</label><br>
-                <textarea maxlength = "100"  type="text" id="descriptioin" name="descriptioin" class="form-control" placeholder="Descriptioin" [(ngModel)]="ticket.Description" required></textarea>
-            </div>
+
+                <div class="row col-12">
+                    <div class="col-6 right-field">
+                        <!--STATUS-->
+                        <label for="status">Status</label><br>
+                        <ng-select [items]="statuses" name="status" id="status" bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Status" required>
+                            <ng-template ng-label-tmp let-item="item">
+                                {{item.Name}}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!--PRIORTY-->
+                    <div class="col-6">
+                        <label for="priorty">Priorty</label><br>
+                        <ng-select [items]="priorities" name="priorty" id="priorty" bindLabel="Name" bindValue="Id" class="form-control" [(ngModel)]="ticket.Priorty" required>
+                            <ng-template ng-label-tmp let-item="item">
+                                {{item.Name}}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
             </div>
             <br>
             <!--BUTTONS-->
