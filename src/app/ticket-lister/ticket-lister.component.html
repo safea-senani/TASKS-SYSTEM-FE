@@ -21,42 +21,54 @@
 </div>
 <!--TASKS WRAPPER-->
 <div class="container tasks">
-    <div class="row sections-wrapper">
+    <div class="row sections-wrapper" cdkDropListGroup>
         <!--PENDING TASKS -->
-        <div class="col-3 pending tasks-section">
+        <div class="col-3 pending tasks-section"  
+        id="status-Pending"
+        cdkDropList
+        [cdkDropListData]="pendingTickets"
+        (cdkDropListDropped)="drop($event)">
             <div class="p-header">
                 <span class="start-p"></span>
                 <h3>To Do</h3>
                 <span class="counter">{{pendingTicketsCount}}</span>
             </div>
             <div>
-                <div class="card-block" *ngFor="let peningTieckt of pendingTickets">
+                <div class="card-block" *ngFor="let peningTieckt of pendingTickets" cdkDrag>
                     <app-ticket-card [ticket]="peningTieckt"></app-ticket-card>
                 </div>
             </div>
         </div>
         <!--ONGOING TASKS -->
-        <div class="col-3 ongoing tasks-section">
+        <div class="col-3 ongoing tasks-section"
+        id="status-Ongoing"
+        cdkDropList
+        [cdkDropListData]="ongoingTickets"
+        (cdkDropListDropped)="drop($event)">
             <div class="p-header">
                 <span class="start-p"></span>
                 <h3>In Progress</h3>
                 <span class="counter">{{ongoingTicketsCount}}</span>
             </div>
             <div>
-                <div class="card-block" *ngFor="let ongoingTieckt of ongoingTickets">
+                <div class="card-block" *ngFor="let ongoingTieckt of ongoingTickets" cdkDrag>
                     <app-ticket-card [ticket]="ongoingTieckt"></app-ticket-card>
                 </div>
             </div>
         </div>
         <!--DONE TASKS -->
-        <div class="col-3 done tasks-section">
+        <div class="col-3 done tasks-section"
+        id="status-Done"
+        cdkDropList
+        [cdkDropListData]="doneTickets"
+        (cdkDropListDropped)="drop($event)">
             <div class="p-header">
                 <span class="start-p"></span>
                 <h3>Done</h3>
                 <span class="counter">{{doneTicketsCount}}</span>
             </div>
             <div>
-                <div class="card-block" *ngFor="let doneTieckt of doneTickets">
+                <div class="card-block" *ngFor="let doneTieckt of doneTickets" cdkDrag>
                     <app-ticket-card [ticket]="doneTieckt"></app-ticket-card>
                 </div>
             </div>

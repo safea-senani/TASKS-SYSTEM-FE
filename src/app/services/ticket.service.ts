@@ -14,6 +14,11 @@ export class TicketService {
     return this.http.get(environment.baseURLAPI+'/home/get?status='+status);
   }
 
+  // updateTicketList
+  updateTicketList(idsList: number[], status: number) {
+    return this.http.get(environment.baseURLAPI+'/TicketController/updateTicketList?idsList='+idsList+'&=status'+status);
+  }
+
   // Create Ticket
   createTicket(ticketRecord: Ticket) {
     return this.http.post(environment.baseURLAPI+'/TicketController/createTicket',ticketRecord);

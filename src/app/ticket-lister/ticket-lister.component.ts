@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Status } from '../Interface/Status';
 import { TicketService } from '../services/ticket.service';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-ticket-lister',
@@ -27,9 +28,10 @@ status: Status=new Status();
     setTimeout(() => {
       this.totalTasks=this.pendingTicketsCount+this.ongoingTicketsCount+this.doneTicketsCount
     }, 100)
-    // this.ticketService.getProjects().subscribe(value => { 
-    //   this.projects=value;
-    //  });
+
+    this.ticketService.updateTicketList([1,2],1).subscribe(value => { 
+      console.log("updateTicketList: "+ value)
+     });
 
   }
 
@@ -51,6 +53,33 @@ status: Status=new Status();
       this.doneTickets=value;
       this.doneTicketsCount=this.doneTickets.length;
      });
+  }
+
+  // this is for drag and drop
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      //alert("moveItemInArray");
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+
+      // ========= DRAGE AND DROP ACTION =========================
+      // here are list of tasks needs to be sent to API to be updated
+      console.log(event['container'].data);
+      // here we can get the status of the container
+      console.log(event['container'].element.nativeElement);
+      // API to update the status of the new list (API IS NOT READY YET)
+      // this.ticketService.updateTicketList(ticketIds,status).subscribe(value => { 
+      //   this.ongoingTickets=value;
+      //   this.ongoingTicketsCount=this.ongoingTickets.length;
+      //  });
+      // ========= DRAGE AND DROP ACTION =========================
+    }
   }
    
 
